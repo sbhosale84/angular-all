@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, retry, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
+import { catchError, retry, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -19,12 +20,14 @@ export class EmployeeService {
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      errorMessage = `an error occurred : ${error.error.message} `;
+      errorMessage = `An error occurred: ${error.error.message}`;
     } else {
-      errorMessage = `server returned code :${error.status}`;
+      errorMessage = `Server returned code: ${error.status}, error message is: ${error.message}`;
     }
-    console.log(errorMessage);
+    console.error(errorMessage);
 
-    return throwError('something bad happened, try again later ');
+    return throwError(
+      () => new Error('Something bad happened; please try again later.')
+    );
   }
 }
