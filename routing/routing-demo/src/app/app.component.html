@@ -1,0 +1,12 @@
+<h1>Hello</h1>
+<nav>
+  <h1>Using routerLink</h1>
+  <a routerLink="/employee" routerLinkActive="active">Employee</a>
+  <a routerLink="/department" routerLinkActive="active">Department</a>
+</nav>
+<div>
+  <h1>Using function</h1>
+  <button (click)="goToEmp()">To Employee</button>
+  <button (click)="goToDepartment()">To Department</button>
+</div>
+<router-outlet></router-outlet>
