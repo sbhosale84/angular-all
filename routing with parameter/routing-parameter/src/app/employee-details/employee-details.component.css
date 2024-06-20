@@ -1,0 +1,27 @@
+/* Styles for the container div */
+.employee-details-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+/* Styles for the heading */
+.employee-details-container h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+.employee-details-container .employee-details {
+  margin-bottom: 10px;
+}
+
+.employee-details-container .employee-details strong {
+  font-weight: bold;
+}
+
+.employee-not-found {
+  color: red;
+  font-style: italic;
+}
