@@ -1,0 +1,29 @@
+<div class="employee-details" *ngIf="employee">
+    <h2>Employee Details</h2>
+    <p><strong>ID:</strong> {{ employee.id }}</p>
+    <p><strong>Name:</strong> {{ employee.name }}</p>
+    <p><strong>Username:</strong> {{ employee.username }}</p>
+    <p><strong>Email:</strong> {{ employee.email }}</p>
+    <div class="address">
+      <p><strong>Address:</strong></p>
+      <p><strong>Street:</strong> {{ employee.address.street }}</p>
+      <p><strong>Suite:</strong> {{ employee.address.suite }}</p>
+      <p><strong>City:</strong> {{ employee.address.city }}</p>
+      <p><strong>Zipcode:</strong> {{ employee.address.zipcode }}</p>
+    </div>
+    <div class="geo">
+      <p><strong>Geo:</strong></p>
+      <p><strong>Lat:</strong> {{ employee.address.geo.lat }}</p>
+      <p><strong>Lng:</strong> {{ employee.address.geo.lng }}</p>
+    </div>
+    <div class="optional-params" *ngIf="optionalParams['info']">
+      <p><strong>Info:</strong> {{ optionalParams['info'] }}</p>
+    </div>
+    <div class="optional-params" *ngIf="optionalParams['additional']">
+      <p><strong>Additional:</strong> {{ optionalParams['additional'] }}</p>
+    </div>
+  </div>
+  <div class="not-found" *ngIf="!employee">
+    <p>Employee not found.</p>
+  </div>
+  

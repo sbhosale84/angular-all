@@ -5,7 +5,7 @@ import { EmployeeDetailsService } from './employee-details.service';
   selector: 'app-root',
   template: `
     <div *ngFor="let employee of employees">
-      {{ employee.id }}{{ employee.name }}
+      {{ employee.id }}{{ employee.name }} {{employee.address.street}}
     </div>
   `,
   styleUrl: './app.component.css',
@@ -14,7 +14,11 @@ export class AppComponent {
   employees: any;
 
   constructor(private empService: EmployeeDetailsService) {
-    this.employees = this.empService.getEmployees();
+    this.employees = this.empService.getClients().subscribe({
+      next: (data) => {
+        this.employees = data;
+      },
+    });
   }
 
   // employees = [

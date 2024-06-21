@@ -1,0 +1,17 @@
+<table class="employee-table">
+    <thead>
+      <tr class="table-head">
+        <th>Name</th>
+        <th>Id</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody class="table-content">
+      <tr *ngFor="let employee of employees" class="tab-content"(click)="goToDetails(employee.id)" >
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.address.street }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

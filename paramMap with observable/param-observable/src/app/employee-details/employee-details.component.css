@@ -1,0 +1,54 @@
+/* Basic reset for the component */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .employee-details {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .employee-details h2 {
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  .employee-details p {
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  .employee-details p strong {
+    color: #333;
+  }
+  
+  .address, .geo {
+    margin-top: 16px;
+  }
+  
+  .address p, .geo p {
+    margin-left: 16px;
+  }
+  
+  .optional-params {
+    margin-top: 20px;
+  }
+  
+  .optional-params p {
+    margin-bottom: 8px;
+    color: #666;
+  }
+  
+  .not-found {
+    text-align: center;
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
