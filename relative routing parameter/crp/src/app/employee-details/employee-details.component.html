@@ -1,0 +1,9 @@
+<div *ngIf="employee">
+  <h2>{{ employee.name }}</h2>
+  <p>Age: {{ employee.username }}</p>
+  <p>Gender: {{ employee.email }}</p>
+  <p>
+    Address: {{ employee.address.street }}, {{ employee.address.city }},
+    {{ employee.address.suite }} - {{ employee.address.zipcode }}
+  </p>
+</div>

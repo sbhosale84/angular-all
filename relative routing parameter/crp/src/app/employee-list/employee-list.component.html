@@ -1,0 +1,29 @@
+<!-- employees.component.html -->
+
+<div>
+  <h2>Employee List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.username }}</td>
+        <td>{{ emp.email }}</td>
+        <td>
+          {{ emp.address.street }}, {{ emp.address.city }},
+          {{ emp.address.suite }} - {{ emp.address.zipcode }}
+        </td>
+        <td>
+          <button (click)="viewDetails(emp.id)">Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
