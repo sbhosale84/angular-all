@@ -8,16 +8,16 @@ import { EmpData } from '../emp-data';
 })
 export class EmpFormComponent {
   myData = new EmpData(
-    'Soham',
-    'svb@m.com',
-    '6127292722',
-    'abc',
-    'cde',
-    'fgh',
-    '123456',
-    'Ind',
-    'Male',
-    ['CSS'],
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    [''],
     ""  
   );
 

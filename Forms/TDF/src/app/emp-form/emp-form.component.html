@@ -1,5 +1,4 @@
-
-{{myData| json }}
+{{ myData | json }}
 <div class="container mt-5 d-flex justify-content-center">
   <div class="card shadow p-4 w-50">
     <div class="card-body">
@@ -16,7 +15,10 @@
             #name="ngModel"
             required
           />
-          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+          <div
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="text-danger"
+          >
             <div *ngIf="name.errors?.['required']">Name is required.</div>
           </div>
         </div>
@@ -31,10 +33,14 @@
             [(ngModel)]="myData.email"
             #email="ngModel"
             required
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
           />
-          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+          <div
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="text-danger"
+          >
             <div *ngIf="email.errors?.['required']">Email is required.</div>
-            <div *ngIf="email.errors?.['email']">Invalid email address.</div>
+            <div *ngIf="email.errors?.['pattern']">Invalid email address.</div>
           </div>
         </div>
 
@@ -48,9 +54,16 @@
             [(ngModel)]="myData.phone"
             #phone="ngModel"
             required
+            pattern="^\d{10}$"
           />
-          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger">
+          <div
+            *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+            class="text-danger"
+          >
             <div *ngIf="phone.errors?.['required']">Phone is required.</div>
+            <div *ngIf="phone.errors?.['pattern']">
+              Invalid phone number. Must be 10 digits.
+            </div>
           </div>
         </div>
 
@@ -81,7 +94,10 @@
             />
             <label for="female" class="form-check-label">Female</label>
           </div>
-          <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="text-danger">
+          <div
+            *ngIf="gender.invalid && (gender.dirty || gender.touched)"
+            class="text-danger"
+          >
             <div *ngIf="gender.errors?.['required']">Gender is required.</div>
           </div>
         </div>
@@ -101,8 +117,15 @@
             <option value="IT">IT</option>
             <option value="Finance">Finance</option>
           </select>
-          <div *ngIf="department.invalid && (department.dirty || department.touched)" class="text-danger">
-            <div *ngIf="department.errors?.['required']">Department is required.</div>
+          <div
+            *ngIf="
+              department.invalid && (department.dirty || department.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="department.errors?.['required']">
+              Department is required.
+            </div>
           </div>
         </div>
 
@@ -157,7 +180,10 @@
             #address="ngModel"
             required
           />
-          <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+          <div
+            *ngIf="address.invalid && (address.dirty || address.touched)"
+            class="text-danger"
+          >
             <div *ngIf="address.errors?.['required']">Address is required.</div>
           </div>
         </div>
@@ -173,7 +199,10 @@
             #city="ngModel"
             required
           />
-          <div *ngIf="city.invalid && (city.dirty || city.touched)" class="text-danger">
+          <div
+            *ngIf="city.invalid && (city.dirty || city.touched)"
+            class="text-danger"
+          >
             <div *ngIf="city.errors?.['required']">City is required.</div>
           </div>
         </div>
@@ -189,44 +218,46 @@
             #state="ngModel"
             required
           />
-          <div *ngIf="state.invalid && (state.dirty || state.touched)" class="text-danger">
+          <div
+            *ngIf="state.invalid && (state.dirty || state.touched)"
+            class="text-danger"
+          >
             <div *ngIf="state.errors?.['required']">State is required.</div>
           </div>
         </div>
-  
-          <div class="form-group">
-            <label for="pincode">Pincode</label>
-            <input
-              type="text"
-              id="pincode"
-              name="pincode"
-              class="form-control rounded-pill"
-              [(ngModel)]="myData.pincode"
-              required
-            />
-          </div>
-  
-          <div class="form-group">
-            <label for="country">Country</label>
-            <input
-              type="text"
-              id="country"
-              name="country"
-              class="form-control rounded-pill"
-              [(ngModel)]="myData.country"
-              required
-            />
-          </div>
-  
-          <button
-            type="submit"
-            class="btn btn-primary btn-block rounded-pill"
-            [disabled]="form.invalid"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
+
+        <div class="form-group">
+          <label for="pincode">Pincode</label>
+          <input
+            type="text"
+            id="pincode"
+            name="pincode"
+            class="form-control rounded-pill"
+            [(ngModel)]="myData.pincode"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            class="form-control rounded-pill"
+            [(ngModel)]="myData.country"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary btn-block rounded-pill"
+          [disabled]="form.invalid"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   </div>
-  
+</div>
