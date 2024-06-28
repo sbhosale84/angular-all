@@ -1,0 +1,284 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card shadow p-4 w-50">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Reactive Form</h2>
+      <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control rounded-pill"
+            formControlName="name"
+          />
+          <div
+            *ngIf="
+              empForm.get('name')?.invalid &&
+              (empForm.get('name')?.dirty || empForm.get('name')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('name')?.errors?.['required']">
+              Name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control rounded-pill"
+            formControlName="email"
+          />
+          <div
+            *ngIf="
+              empForm.get('email')?.invalid &&
+              (empForm.get('email')?.dirty || empForm.get('email')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('email')?.errors?.['required']">
+              Email is required.
+            </div>
+            <div *ngIf="empForm.get('email')?.errors?.['pattern']">
+              Invalid email address.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            class="form-control rounded-pill"
+            formControlName="phone"
+          />
+          <div
+            *ngIf="
+              empForm.get('phone')?.invalid &&
+              (empForm.get('phone')?.dirty || empForm.get('phone')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('phone')?.errors?.['required']">
+              Phone is required.
+            </div>
+            <div *ngIf="empForm.get('phone')?.errors?.['pattern']">
+              Invalid phone number.
+            </div>
+            <div *ngIf="empForm.get('phone')?.errors?.['invalidPhoneNumber']">
+              Phone number must contain only digits.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="male"
+              class="form-check-input"
+              value="Male"
+              formControlName="gender"
+            />
+            <label for="male" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="female"
+              class="form-check-input"
+              value="Female"
+              formControlName="gender"
+            />
+            <label for="female" class="form-check-label">Female</label>
+          </div>
+          <div
+            *ngIf="
+              empForm.get('gender')?.invalid &&
+              (empForm.get('gender')?.dirty || empForm.get('gender')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('gender')?.errors?.['required']">
+              Gender is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select
+            id="department"
+            class="form-control rounded-pill"
+            formControlName="department"
+          >
+            <option value="">Select</option>
+            <option value="HR">HR</option>
+            <option value="IT">IT</option>
+            <option value="Finance">Finance</option>
+          </select>
+          <div
+            *ngIf="
+              empForm.get('department')?.invalid &&
+              (empForm.get('department')?.dirty ||
+                empForm.get('department')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('department')?.errors?.['required']">
+              Department is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Skills</label>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="html"
+              class="form-check-input"
+              value="HTML"
+              (change)="onCheckboxChange($event)"
+            />
+            <label for="html" class="form-check-label">HTML</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="css"
+              class="form-check-input"
+              value="CSS"
+              (change)="onCheckboxChange($event)"
+            />
+            <label for="css" class="form-check-label">CSS</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="js"
+              class="form-check-input"
+              value="JavaScript"
+              (change)="onCheckboxChange($event)"
+            />
+            <label for="js" class="form-check-label">JavaScript</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            type="text"
+            id="address"
+            class="form-control rounded-pill"
+            formControlName="address"
+          />
+          <div
+            *ngIf="
+              empForm.get('address')?.invalid &&
+              (empForm.get('address')?.dirty || empForm.get('address')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('address')?.errors?.['required']">
+              Address is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            class="form-control rounded-pill"
+            formControlName="city"
+          />
+          <div
+            *ngIf="
+              empForm.get('city')?.invalid &&
+              (empForm.get('city')?.dirty || empForm.get('city')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('city')?.errors?.['required']">
+              City is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="state">State</label>
+          <input
+            type="text"
+            id="state"
+            class="form-control rounded-pill"
+            formControlName="state"
+          />
+          <div
+            *ngIf="
+              empForm.get('state')?.invalid &&
+              (empForm.get('state')?.dirty || empForm.get('state')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('state')?.errors?.['required']">
+              State is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pincode">Pincode</label>
+          <input
+            type="text"
+            id="pincode"
+            class="form-control rounded-pill"
+            formControlName="pincode"
+          />
+          <div
+            *ngIf="
+              empForm.get('pincode')?.invalid &&
+              (empForm.get('pincode')?.dirty || empForm.get('pincode')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('pincode')?.errors?.['required']">
+              Pincode is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            class="form-control rounded-pill"
+            formControlName="country"
+          />
+          <div
+            *ngIf="
+              empForm.get('country')?.invalid &&
+              (empForm.get('country')?.dirty || empForm.get('country')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="empForm.get('country')?.errors?.['required']">
+              Country is required.
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary rounded-pill w-100 mt-4">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
